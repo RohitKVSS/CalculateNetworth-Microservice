@@ -92,7 +92,6 @@ namespace CalculateNetworthMicroservice
                            });
 
             //Necessary configuration1 to enable CORS.
-            services.AddCors();
 
             services.AddScoped<IPortfolioRepository, PortfolioRepository>();
             services.AddScoped<IPortfolioService, PortfolioService>();

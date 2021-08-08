@@ -40,7 +40,7 @@ jobs:
         cd Application
         dotnet restore
         dotnet build --configuration Release
-        dotnet test aspnet-core-dotnet-core.UnitTests/aspnet-core-dotnet-core.UnitTests.csproj
+        dotnet test CalculateNetworthMicroservice_Test/CalculateNetworthMicroservice_Test.csproj
         dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/build'
 
     - name: Archive Application
@@ -113,29 +113,29 @@ jobs:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/Application/build'
 
-  FunctionalTests:
-    name: Functional tests
-    runs-on: windows-latest
-    needs: deploy
-    steps:
+  # FunctionalTests:
+    # name: Functional tests
+    # runs-on: windows-latest
+    # needs: deploy
+    # steps:
 
-    - uses: actions/checkout@master
+    # - uses: actions/checkout@master
 
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: ${{ env.DOTNET_VERSION }} 
+    # - name: Setup .NET Core
+      # uses: actions/setup-dotnet@v1
+      # with:
+        # dotnet-version: ${{ env.DOTNET_VERSION }} 
 
-    - name: update web app url in Run Settings
-      shell: powershell
-      run: |
-        cd Application\aspnet-core-dotnet-core.FunctionalTests
-        [xml]$runSetting = Get-Content functionalTests.runsettings
-        $runSetting.RunSettings.TestRunParameters.ChildNodes.Item(0).value = 'https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/'
-        $runSetting.Save("$(pwd)/functionalTests.runsettings")
+    # - name: update web app url in Run Settings
+      # shell: powershell
+      # run: |
+        # cd Application\aspnet-core-dotnet-core.FunctionalTests
+        # [xml]$runSetting = Get-Content functionalTests.runsettings
+        # $runSetting.RunSettings.TestRunParameters.ChildNodes.Item(0).value = 'https://${{ env.AZURE_WEBAPP_NAME }}.azurewebsites.net/'
+        # $runSetting.Save("$(pwd)/functionalTests.runsettings")
 
-    - name: Run tests
-      continue-on-error: false
-      run: |
-        cd Application\aspnet-core-dotnet-core.FunctionalTests
-        dotnet test aspnet-core-dotnet-core.FunctionalTests.csproj -s functionalTests.runsettings
+    # - name: Run tests
+      # continue-on-error: false
+      # run: |
+        # cd Application\aspnet-core-dotnet-core.FunctionalTests
+        # dotnet test aspnet-core-dotnet-core.FunctionalTests.csproj -s functionalTests.runsettings

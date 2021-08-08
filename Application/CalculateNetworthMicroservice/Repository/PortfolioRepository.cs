@@ -64,7 +64,7 @@ namespace CalculateNetworthMicroservice.Repository
             {
                 using(var httpClient=new HttpClient())
                 {
-                    httpClient.BaseAddress = new Uri("https://portfolioauth.azurewebsites.net");
+                    httpClient.BaseAddress = new Uri("https://dailysharepriceapi.azurewebsites.net");
                     httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + jwt_token);
                     
@@ -102,7 +102,7 @@ namespace CalculateNetworthMicroservice.Repository
             {
                 using (var httpClient = new HttpClient())
                 {
-                    httpClient.BaseAddress = new Uri("https://portfolioauth.azurewebsites.net");
+                    httpClient.BaseAddress = new Uri("https://dailymutualfundnav.azurewebsites.net");
                     httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + jwt_token);
 

@@ -118,10 +118,10 @@ namespace CalculateNetworthMicroservice
 
             app.UseAuthentication();
 
-            app.UseRouting();
-
             //Necessary configuration2 to enable CORS.
             app.UseCors(options => options.AllowAnyMethod().AllowAnyHeader().AllowAnyOrigin());
+
+            app.UseRouting();
 
             app.UseAuthorization();
 

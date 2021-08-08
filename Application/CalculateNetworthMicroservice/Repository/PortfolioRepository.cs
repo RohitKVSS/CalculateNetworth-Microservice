@@ -64,12 +64,12 @@ namespace CalculateNetworthMicroservice.Repository
             {
                 using(var httpClient=new HttpClient())
                 {
-                    httpClient.BaseAddress = new Uri("https://localhost:44311/api/");
+                    httpClient.BaseAddress = new Uri("https://portfolioauth.azurewebsites.net");
                     httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + jwt_token);
                     
 
-                    HttpResponseMessage httpResponseMessage = httpClient.GetAsync("Stock/dailySharePrice?stockName=" + stockName).Result;
+                    HttpResponseMessage httpResponseMessage = httpClient.GetAsync("/api/Stock/dailySharePrice?stockName=" + stockName).Result;
                     string apiResponse = httpResponseMessage.Content.ReadAsStringAsync().Result;
                     var stockList = JsonConvert.DeserializeObject<List<Stock>>(apiResponse);
 
@@ -102,11 +102,11 @@ namespace CalculateNetworthMicroservice.Repository
             {
                 using (var httpClient = new HttpClient())
                 {
-                    httpClient.BaseAddress = new Uri("https://localhost:44326/api/");
+                    httpClient.BaseAddress = new Uri("https://portfolioauth.azurewebsites.net");
                     httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + jwt_token);
 
-                    HttpResponseMessage httpResponseMessage = httpClient.GetAsync("MutualFund/mutualFundNav?mutualFundName=" + mutualFundName).Result;
+                    HttpResponseMessage httpResponseMessage = httpClient.GetAsync("/api/MutualFund/mutualFundNav?mutualFundName=" + mutualFundName).Result;
                     string apiResponse = httpResponseMessage.Content.ReadAsStringAsync().Result;
                     var mutualFundList = JsonConvert.DeserializeObject<List<MutualFund>>(apiResponse);
 

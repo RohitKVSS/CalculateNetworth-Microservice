@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HZEnEjcCiaTitgLhsV4S0ZQDaicM6QLlLhCxPXyiZ169W7xjwTCMW/KKESNP4sGpT+QVzl7LhKj5MMR+2Htjow==",
+  "dgSpecHash": "raDN7s1RloH3xcQEBV68sl7m2io4c9uhp/2nQZu+oePNZrH1gYUCkPTYLvnhOIo//VKfQbbWbgemkMe+8OkIMA==",
   "success": true,
-  "projectFilePath": "D:\\dotnet3\\CalculateNetworthMicroserviceSn\\CalculateNetworthMicroservice_Test\\CalculateNetworthMicroservice_Test.csproj",
+  "projectFilePath": "D:\\dsp_cloud\\CalculateNetworth-Microservice\\Application\\CalculateNetworthMicroservice_Test\\CalculateNetworthMicroservice_Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\troller2369\\.nuget\\packages\\castle.core\\4.4.0\\castle.core.4.4.0.nupkg.sha512",
     "C:\\Users\\troller2369\\.nuget\\packages\\coverlet.collector\\3.0.2\\coverlet.collector.3.0.2.nupkg.sha512",

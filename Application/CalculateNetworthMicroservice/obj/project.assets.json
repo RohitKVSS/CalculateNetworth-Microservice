@@ -4467,11 +4467,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\dotnet3\\CalculateNetworthMicroserviceSn\\CalculateNetworthMicroservice\\CalculateNetworthMicroservice.csproj",
+      "projectUniqueName": "D:\\dsp_cloud\\CalculateNetworth-Microservice\\Application\\CalculateNetworthMicroservice\\CalculateNetworthMicroservice.csproj",
       "projectName": "CalculateNetworthMicroservice",
-      "projectPath": "D:\\dotnet3\\CalculateNetworthMicroserviceSn\\CalculateNetworthMicroservice\\CalculateNetworthMicroservice.csproj",
+      "projectPath": "D:\\dsp_cloud\\CalculateNetworth-Microservice\\Application\\CalculateNetworthMicroservice\\CalculateNetworthMicroservice.csproj",
       "packagesPath": "C:\\Users\\troller2369\\.nuget\\packages\\",
-      "outputPath": "D:\\dotnet3\\CalculateNetworthMicroserviceSn\\CalculateNetworthMicroservice\\obj\\",
+      "outputPath": "D:\\dsp_cloud\\CalculateNetworth-Microservice\\Application\\CalculateNetworthMicroservice\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\troller2369\\AppData\\Roaming\\NuGet\\NuGet.Config",

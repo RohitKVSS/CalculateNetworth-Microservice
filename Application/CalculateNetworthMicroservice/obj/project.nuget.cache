@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "CR7fHosEycR1HhXIAGgDFMZqebju6ck+Fc4NeHJT9qRCVxzt+36eH2ZBjUtCw4nWqlSaKioQartuOWZs5I9A2Q==",
+  "dgSpecHash": "gjEdZjuR3pb0B5o7fuTzVA8BSzqKagWRwe9IipqrxYkZ3cjSFzaWrKvGYypTX0NurPGCtAncLEr1lI+PI3IzXA==",
   "success": true,
-  "projectFilePath": "D:\\dotnet3\\CalculateNetworthMicroserviceSn\\CalculateNetworthMicroservice\\CalculateNetworthMicroservice.csproj",
+  "projectFilePath": "D:\\dsp_cloud\\CalculateNetworth-Microservice\\Application\\CalculateNetworthMicroservice\\CalculateNetworthMicroservice.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\troller2369\\.nuget\\packages\\log4net\\2.0.11\\log4net.2.0.11.nupkg.sha512",
     "C:\\Users\\troller2369\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.17\\microsoft.aspnetcore.authentication.jwtbearer.3.1.17.nupkg.sha512",

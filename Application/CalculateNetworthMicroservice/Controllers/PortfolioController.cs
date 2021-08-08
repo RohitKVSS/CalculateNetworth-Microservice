@@ -89,7 +89,7 @@ namespace CalculateNetworthMicroservice.Controllers
                 else
                 {
                     _log4net.Info("Valid input in AddStock(Controller) having portfolio Id: " + portfolioId);
-                    return new OkObjectResult(_portfolioService.AddStock(portfolioId, stockDetails));
+                    return new OkObjectResult(new { message = _portfolioService.AddStock(portfolioId, stockDetails) });
                 }
 
             }
@@ -124,7 +124,7 @@ namespace CalculateNetworthMicroservice.Controllers
                 else
                 {
                     _log4net.Info("Valid input in AddMutualFund(Controller) having portfolio Id: " + portfolioId);
-                    return new OkObjectResult(_portfolioService.AddMutualFund(portfolioId, mutualFundDetails));
+                    return new OkObjectResult(new { message = _portfolioService.AddMutualFund(portfolioId, mutualFundDetails) });
                 }
 
             }
@@ -164,7 +164,7 @@ namespace CalculateNetworthMicroservice.Controllers
                     if (netWorth == -1)
                         return new NoContentResult();
                     else
-                        return new OkObjectResult(netWorth);
+                        return new OkObjectResult(new { price = netWorth });
                 }
             }
             catch (Exception e)

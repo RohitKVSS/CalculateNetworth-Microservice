@@ -61,7 +61,7 @@ namespace CalculateNetworthMicroservice.Controllers
             catch(Exception)
             {
                 _log4net.Error("Exception Occurred in GetPortfolioDetails(Controller)");
-                return BadRequest(new { message = "Server Busy. Please try again later." });
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Server Error.Please try again later." });
             }
         }
 
@@ -96,7 +96,7 @@ namespace CalculateNetworthMicroservice.Controllers
             catch(Exception)
             {
                 _log4net.Error("Exception Occurred in AddStock(Controller)");
-                return BadRequest(new { message = "Server Busy. Please try again later." });
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Server Error.Please try again later." });
             }
         }
 
@@ -131,7 +131,7 @@ namespace CalculateNetworthMicroservice.Controllers
             catch(Exception)
             {
                 _log4net.Error("Exception Occurred in AddMutualFund(Controller)");
-                return BadRequest(new { message = "Server Busy. Please try again later." });
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Server Error.Please try again later." });
             }
         }
 
@@ -170,7 +170,7 @@ namespace CalculateNetworthMicroservice.Controllers
             catch (Exception e)
             {
                 _log4net.Error("Exception Occurred in CalculateNetWorth(Controller) having portfolio id: "+portfolioId+" "+e.Message);
-                return BadRequest(new { message = "Server Busy. Please try again later." });
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Server Error.Please try again later." });
             }
 
         }
@@ -210,7 +210,7 @@ namespace CalculateNetworthMicroservice.Controllers
             catch(Exception)
             {
                 _log4net.Error("Exception happened in SellAssets(Contoller) having portfolio id: " + currentDetail);
-                return BadRequest(new { message = "Server Busy. Please try again later." });
+                return StatusCode(StatusCodes.Status500InternalServerError, new { message = "Server Error.Please try again later." });
             }
         }
 

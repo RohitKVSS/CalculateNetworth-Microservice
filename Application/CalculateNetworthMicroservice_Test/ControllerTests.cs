@@ -202,7 +202,7 @@ namespace CalculateNetWorth_Testing
         }
 
         [Test]
-        public void GetPortfolioDetails_AnyData_Exception_ReturnsBadRequestResult()
+        public void GetPortfolioDetails_AnyData_Exception_ReturnsInternalServerError()
         {
             //Creating an object of PortfolioController.
             var portfolioController = new PortfolioController(service_mock.Object);
@@ -222,10 +222,8 @@ namespace CalculateNetWorth_Testing
 
             service_mock.Setup(s => s.GetPortfolioDetails(1)).Throws<Exception>();
 
-            var portfolioDetails = portfolioController.GetPortfolioDetails() as BadRequestObjectResult;
-
-            Assert.IsInstanceOf<BadRequestObjectResult>(portfolioDetails);
-            Assert.NotNull(portfolioDetails.Value);
+            var portfolioDetails = portfolioController.GetPortfolioDetails() as ObjectResult;
+            Assert.AreEqual(500, portfolioDetails.StatusCode);
         }
 
         [Test]
@@ -279,7 +277,7 @@ namespace CalculateNetWorth_Testing
         }
 
         [Test]
-        public void AddStock_AnyData_Exception_ReturnsBadRequestResult()
+        public void AddStock_AnyData_Exception_ReturnsInternalServerError()
         {
             //Creating an object of PortfolioController.
             var portfolioController = new PortfolioController(service_mock.Object);
@@ -300,10 +298,8 @@ namespace CalculateNetWorth_Testing
             // service_mock.Setup(s => s.GetPortfolioDetails(1)).Returns(data[0]);
             service_mock.Setup(s => s.AddStock(1, data[0].StockList[0])).Throws<Exception>();
 
-            var portfolioDetails = portfolioController.AddStock(data[0].StockList[0]) as BadRequestObjectResult;
-
-            Assert.IsInstanceOf<BadRequestObjectResult>(portfolioDetails);
-            Assert.IsNotNull(portfolioDetails.Value);
+            var message = portfolioController.AddStock(data[0].StockList[0]) as ObjectResult;
+            Assert.AreEqual(500, message.StatusCode);
         }
 
         [TestCase(1)]
@@ -336,7 +332,7 @@ namespace CalculateNetWorth_Testing
 
         [TestCase(2)]
         [TestCase(7)]
-        public void CalculateNetWorth_AnyData_ReturnsBadRequestResult(int portfolioId)
+        public void CalculateNetWorth_AnyData_ReturnsInternalServerError(int portfolioId)
         {
             //Creating an object of PortfolioController.
             var portfolioController = new PortfolioController(service_mock.Object);
@@ -344,9 +340,8 @@ namespace CalculateNetWorth_Testing
             string jwt_token = "abcdefghijklmnop";
 
             service_mock.Setup(s => s.CalculateNetWorth(portfolioId, jwt_token)).Throws<Exception>();
-            var netWorth = portfolioController.CalculateNetWorth(portfolioId) as BadRequestObjectResult;
-            Assert.IsInstanceOf<BadRequestObjectResult>(netWorth);
-            Assert.NotNull(netWorth.Value);
+            var netWorth = portfolioController.CalculateNetWorth(portfolioId) as ObjectResult;
+            Assert.AreEqual(500, netWorth.StatusCode);
         }
 
         [Test]
@@ -390,7 +385,7 @@ namespace CalculateNetWorth_Testing
         }
 
         [Test]
-        public void SellAssets_AnyData_Exception_ReturnsBadRequestResult()
+        public void SellAssets_AnyData_Exception_ReturnsInternalServerError()
         {
             //Creating an object of PortfolioController and mocking the necessary part.
             var portfolioController = new PortfolioController(service_mock.Object);
@@ -402,10 +397,8 @@ namespace CalculateNetWorth_Testing
             int currentDetail = 1;
 
             service_mock.Setup(s => s.SellAssets(currentDetail, saleDetail1, jwt_token)).Throws<Exception>();
-            var assetSaleResponseResult = portfolioController.SellAssets(currentDetail, saleDetail1) as BadRequestObjectResult;
-
-            Assert.IsInstanceOf<BadRequestObjectResult>(assetSaleResponseResult);
-            Assert.NotNull(assetSaleResponseResult.Value);
+            var assetSaleResponseResult = portfolioController.SellAssets(currentDetail, saleDetail1) as ObjectResult;
+            Assert.AreEqual(500, assetSaleResponseResult.StatusCode);
         }
 
         [Test]
@@ -459,7 +452,7 @@ namespace CalculateNetWorth_Testing
         }
 
         [Test]
-        public void AddMutualFund_AnyData_Exception_ReturnBadRequestResult()
+        public void AddMutualFund_AnyData_Exception_ReturnInternalServerError()
         {
             //Creating an object of PortfolioController.
             var portfolioController = new PortfolioController(service_mock.Object);
@@ -479,9 +472,8 @@ namespace CalculateNetWorth_Testing
 
             service_mock.Setup(s => s.AddMutualFund(1, data[0].MutualFundList[0])).Throws<Exception>();
 
-            var portfolioDetails = portfolioController.AddMutualFund(data[0].MutualFundList[0]) as BadRequestObjectResult;
-            Assert.IsInstanceOf<BadRequestObjectResult>(portfolioDetails);
-            Assert.NotNull(portfolioDetails.Value);
+            var message = portfolioController.AddMutualFund(data[0].MutualFundList[0]) as ObjectResult;
+            Assert.AreEqual(500, message.StatusCode);
         }
 
 
